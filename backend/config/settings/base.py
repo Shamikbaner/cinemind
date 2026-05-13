@@ -1,5 +1,7 @@
 from decouple import config
 
+
+
 """
 Django settings for config project.
 
@@ -41,9 +43,20 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'users',
+    'rest_framework_simplejwt',
+    'movies',
+    'streaming',
+    'recommendations',
+    'analytics',
+    'reviews',
+    'social',
+    'notifications',
+    'payments',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -51,6 +64,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'core.middleware.request_logging.RequestLoggingMiddleware',
+
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -124,3 +139,31 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 AUTH_USER_MODEL="users.User"
+
+REST_FRAMEWORK={
+    "DEFAULT_AUTHENTICATION_CLASSES":(
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+
+        "EXCEPTION_HANDLER":("common.exceptions.custom_exception_handler"
+    ),
+}
+
+LOGGING={
+    "version":1,
+    "disable_existing_loggers":False,
+
+    "handlers":{
+        "console":{
+            "class":"logging.StreamHandler",
+        },
+    },
+    "root":{
+        "handlers":["console"],
+        "level":"INFO"
+    },
+}
+
+CORS_ALLOWED_ORIGINS=[
+    "http://localhost:3000",
+]
