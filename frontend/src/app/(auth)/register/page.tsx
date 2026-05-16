@@ -5,6 +5,7 @@ import Button from '@/components/ui/Button'
 import Input from '@/components/ui/Input'
 
 import { registerUser } from '@/services/auth.service'
+import toast from 'react-hot-toast'
 
 export default function Registerpage() {
   const [username, setUsername] = useState('')
@@ -20,10 +21,10 @@ export default function Registerpage() {
       })
 
       console.log(data)
-      alert('User Registered Successfully')
+      toast.success('User Registered Successfully')
     } catch (error: any) {
       console.log(error.response.data)
-      alert(JSON.stringify(error.response.data))
+      toast.error(JSON.stringify(error.response.data))
     }
   }
 

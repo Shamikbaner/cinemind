@@ -1,7 +1,9 @@
+import Container from '@/components/ui/Container'
+
 export default function HomePage() {
   return (
-    <div className="bg-black text-white min-h-screen flex items-center justify-center">
-      <h1 className="text-4xl font-bold">CineMind Frontend Running🚀</h1>
-    </div>
+    <Container>
+      <div className="bg-red-500 text-white p-10">Container Working</div>
+    </Container>
   )
 }

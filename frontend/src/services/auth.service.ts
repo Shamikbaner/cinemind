@@ -9,3 +9,13 @@ export const registerUser = async (data: {
 
   return response.data
 }
+
+export const loginUser=async(
+  data:{
+    email:string
+    password:string
+  }
+)=>{
+  const response=await api.post("/users/token/",data)
+  return response.data
+}
