@@ -1,9 +1,13 @@
-import Container from '@/components/ui/Container'
+import Navbar from '@/components/layout/Navbar'
+import HeroBanner from '@/components/home/HeroBanner'
+
+import { colors } from '@/styles'
 
 export default function HomePage() {
   return (
-    <Container>
-      <div className="bg-red-500 text-white p-10">Container Working</div>
-    </Container>
+    <main className="min-h-screen" style={{ background: colors.background }}>
+      <Navbar />
+      <HeroBanner />
+    </main>
   )
 }
