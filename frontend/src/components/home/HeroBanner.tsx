@@ -1,4 +1,5 @@
 import Container from "@/components/ui/Container"
+import Fadeln from "../shared/Fadeln"
 
 import {
   typography,
@@ -43,64 +44,62 @@ export default function HeroBanner() {
       />
 
       <Container>
-        <div
-          className={`
+        <Fadeln>
+          <div
+            className={`
             relative
             z-10
             max-w-3xl
             ${spacing.sectionGap}
           `}
-        >
-          <div>
-            <p
-              className="
+          >
+            <div>
+              <p
+                className="
                 text-red-400
                 uppercase
                 tracking-[0.3em]
                 text-sm
                 mb-4
               "
-            >
-              Premium Streaming Experience
-            </p>
+              >
+                Premium Streaming Experience
+              </p>
 
-            <h1
-              className={`
+              <h1
+                className={`
                 ${typography.display}
                 text-white
                 leading-[1.1]
               `}
-            >
-              Stream Smarter
-              <br />
-              With CineMind
-            </h1>
+              >
+                Stream Smarter
+                <br />
+                With CineMind
+              </h1>
 
-            <p
-              className={`
+              <p
+                className={`
                 ${typography.body}
                 text-zinc-400
                 mt-6
                 max-w-2xl
               `}
-            >
-              Discover trending movies,
-              binge-worthy series, and
-              immersive cinematic experiences
-              powered by modern streaming
-              architecture.
-            </p>
-          </div>
+              >
+                Discover trending movies, binge-worthy series, and immersive
+                cinematic experiences powered by modern streaming architecture.
+              </p>
+            </div>
 
-          <div
-            className="
+            <div
+              className="
               flex
               flex-wrap
               gap-4
             "
-          >
-            <button
-              className="
+            >
+              <button
+                className="
                 px-8
                 py-4
                 rounded-2xl
@@ -114,12 +113,12 @@ export default function HeroBanner() {
                 shadow-red-500/20
                 hover:scale-105
               "
-            >
-              Start Watching
-            </button>
+              >
+                Start Watching
+              </button>
 
-            <button
-              className="
+              <button
+                className="
                 px-8
                 py-4
                 rounded-2xl
@@ -132,11 +131,12 @@ export default function HeroBanner() {
                 duration-300
                 text-white
               "
-            >
-              Explore Library
-            </button>
+              >
+                Explore Library
+              </button>
+            </div>
           </div>
-        </div>
+        </Fadeln>
       </Container>
     </section>
   )
