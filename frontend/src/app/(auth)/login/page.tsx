@@ -7,6 +7,7 @@ import Input from '@/components/ui/Input'
 import { loginUser } from '@/services/auth.service'
 import { useUIStore } from '@/store/ui.store'
 import toast from 'react-hot-toast'
+import { signIn } from 'next-auth/react'
 
 import { saveTokens } from '@/lib/token'
 export default function LoginPage() {
@@ -26,12 +27,13 @@ export default function LoginPage() {
       setAuth(
         {
           username:email,
-          email:email,
+          email:'',
         },
         data.access,
         data.refresh
       )
       toast.success('Login Succesful')
+      window.location.href='/'
       console.log(data)
       console.log(useAuthStore.getState())
     } catch (error: any) {
@@ -51,7 +53,7 @@ export default function LoginPage() {
     >
       <div
         className="
-            w-(400-px)
+            w-full max-w-md
             bg-zinc-900/80
             border
             border-zinc-700
@@ -82,6 +84,8 @@ export default function LoginPage() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <Button onClick={handleLogin}>Login</Button>
+        <button onClick={()=>signIn('google',{callbackUrl:"/"})}
+        className="w-full bg-white text-black py-3 rounded-lg font-semibold">Continue with Google</button>
         <button onClick={toggleSidebar} className='bg-blue-500 text-white p-2 rounded'>Toggle Sidebar</button>
         <p className='text-white'>Sidebar:{isSidebarOpen ? 'Open':'Closed'}</p>
       </div>

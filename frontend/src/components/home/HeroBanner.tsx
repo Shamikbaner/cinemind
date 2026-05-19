@@ -99,38 +99,15 @@ export default function HeroBanner() {
             "
             >
               <button
-                className="
-                px-8
-                py-4
-                rounded-2xl
-                bg-red-600
-                hover:bg-red-500
-                transition-all
-                duration-300
-                text-white
-                font-semibold
-                shadow-lg
-                shadow-red-500/20
-                hover:scale-105
-              "
+                aria-label="Start Watching Movies"
+              
               >
                 Start Watching
               </button>
 
-              <button
-                className="
-                px-8
-                py-4
-                rounded-2xl
-                border
-                border-white/10
-                bg-white/5
-                backdrop-blur-md
-                hover:bg-white/10
-                transition-all
-                duration-300
-                text-white
-              "
+              <button aria-label="Explore Movie Library"
+
+
               >
                 Explore Library
               </button>
