@@ -55,7 +55,8 @@ INSTALLED_APPS = [
     'payments',
     'corsheaders',
     'rest_framework_simplejwt.token_blacklist',
-    
+    'drf_spectacular'
+
 
 ]
 
@@ -147,10 +148,12 @@ AUTH_USER_MODEL="users.User"
 REST_FRAMEWORK={
     "DEFAULT_AUTHENTICATION_CLASSES":(
         "rest_framework_simplejwt.authentication.JWTAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
     ),
 
-        "EXCEPTION_HANDLER":("common.exceptions.custom_exception_handler"
-    ),
+        "EXCEPTION_HANDLER":"common.exceptions.custom_exception_handler",
+
+    "DEFAULT_SCHEMA_CLASS":"drf_spectacular.openapi.AutoSchema"
 }
 
 LOGGING={

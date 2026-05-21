@@ -42,8 +42,16 @@ class Movie(models.Model):
     duration=models.PositiveBigIntegerField(
         help_text="Duration in minutes"
     )
-    poster_url=models.URLField()
-    banner_url=models.URLField()
+    thumbnail=models.ImageField(
+          upload_to='thumbnails/',
+          null=True,
+          blank=True
+    )
+    video=models.FileField(
+          upload_to='videos/',
+          null=True,
+          blank=True
+    )
 
     rating=models.FloatField(
         default=0,
