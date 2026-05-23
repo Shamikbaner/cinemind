@@ -1,7 +1,12 @@
 from .base import *
 from decouple import config
 
-DEBUG=config("DEBUG",default=True,cast=bool)
+
+DEBUG=True
+
+ALLOWED_HOSTS=["127.0.0.1","localhost"]
+
+# DEBUG=config("DEBUG",default=True,cast=bool)
 
 
 MEDIA_URL="/media/"
@@ -20,12 +25,25 @@ CLOUDINARY_STORAGE={
 }
 
 
-STORAGES={
-    "default":{
-        "BACKEND":"cloudinary_storage.storage.MediaCloudinaryStorage",
-    },
+# STORAGES={
+#     "default":{
+#         "BACKEND":"cloudinary_storage.storage.MediaCloudinaryStorage",
+#     },
 
-    "staticfiles":{
-        "BACKEND":"django.contrib.staticfiles.storage.StaticFilesStorage",
-    },
+#     "staticfiles":{
+#         "BACKEND":"django.contrib.staticfiles.storage.StaticFilesStorage",
+#     },
+# }
+DATABASES = {
+    'default': {
+        'ENGINE':'django.db.backends.postgresql',
+        'NAME':config("DB_NAME"),
+        'USER':config("DB_USER"),
+        'PASSWORD':config("DB_PASSWORD"),
+        'HOST':config("DB_HOST"),
+        'PORT':config("DB_PORT"),
+    }
 }
+
+
+

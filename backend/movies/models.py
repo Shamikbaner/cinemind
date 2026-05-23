@@ -4,6 +4,7 @@ import uuid
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.core.validators import MinValueValidator,MaxValueValidator
+from .storage import VideoMediaCloudinaryStorage
 
 User=get_user_model()
 
@@ -42,13 +43,15 @@ class Movie(models.Model):
     duration=models.PositiveBigIntegerField(
         help_text="Duration in minutes"
     )
-    thumbnail=models.ImageField(
+    thumbnail=models.FileField(
           upload_to='thumbnails/',
           null=True,
           blank=True
     )
     video=models.FileField(
           upload_to='videos/',
+          
+
           null=True,
           blank=True
     )
