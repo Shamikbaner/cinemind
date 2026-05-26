@@ -34,9 +34,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/users/",include("users.urls")),
     path("api/",include("movies.urls")),
+    path("api/movies/",include("movies.urls")),
     path("api-auth/",include("rest_framework.urls")),
     path("api/schema/",SpectacularAPIView.as_view(),name="schema"),
     path("api/docs/",SpectacularSwaggerView.as_view(url_name="schema"),name="swagger-ui",),
+    path("api/streaming/",include("streaming.urls")),
 
 ]
 

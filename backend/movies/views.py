@@ -1,4 +1,5 @@
 from ast import For
+import stat
 
 from rest_framework import generics
 from rest_framework.decorators import api_view
@@ -97,7 +98,24 @@ def movie_list(request):
 
     return paginator.get_paginated_response(data)
 
+@api_view(["GET"])
+def movie_stream(request,movie_id):
+    try:
+        movie=Movie.objects.get(id=movie_id)
 
+        return Response({
+            "id":str(movie.id),
+            "title":movie.title,
+            "video":movie.video.url,
+            "thumbnail":movie.thumbnail.url if movie.thumbnail else None
+
+        })
+    except Movie.DoesNotExist:
+        return Response({
+            "error":"Movie not found"
+        },status=404)
+
+    
 
 
 
